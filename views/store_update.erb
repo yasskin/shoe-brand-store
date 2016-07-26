@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-4 col-md-offset-3">
+    <h1>Shoe Store Name: <%= @store.store_name() %></h1>
+    <hr>
+    <form class="form-group" action="/store/<%= @store.id %>" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <label for="new_store_name">New Store Name:</label>
+      <input type="test" name="new_store_name" value="<%= @store.store_name()%>">
+      <hr>
+    </form>
+  </div>
+</div>

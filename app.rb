@@ -76,3 +76,12 @@ patch('/brand/:id') do
   @brands = Brand.all()
   erb(:index)
 end
+
+patch('/store/:id/update') do
+  name = params.fetch('new_store_name')
+  @store = Store.find(params.fetch('id').to_i())
+  @store.update({:store_name => name})
+  @stores = Store.all()
+  @brands = Brand.all()
+  erb(:index)
+end

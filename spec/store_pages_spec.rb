@@ -29,12 +29,13 @@ describe('Delete a shoe store', {:type => :feature}) do
   end
 end
 
-# describe('Update the NEW STORE default name with a new store name', {:type => :feature}) do
-#   it('takes the user to a unique store page where the store name can be updated') do
-#     visit('/')
-#     click_button('Create New Shoe Store')
-#     fill_in('store-name', :with => "drop 'n' pop")
-#     click_button('Update')
-#     expect(page).to have_content("DROP 'N' POP")
-#   end
-# end
+describe('Update a Store name with a new store name', {:type => :feature}) do
+  it('takes the user to a unique store page where the store name can be updated') do
+    visit('/')
+    fill_in('store-name', :with => "pop")
+    click_button('Create New Shoe Store')
+    fill_in('new-store-name', :with => "splice")
+    click_button('Update')
+    expect(page).to have_content("Splice")
+  end
+end

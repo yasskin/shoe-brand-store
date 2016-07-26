@@ -15,7 +15,7 @@
       <% end %>
       <br>
     <hr>
-    <h3>Brands: </h3>
+    <h3>Available Brands: </h3>
       <% if @brands.any?() %>
         <form action='/store/<%= @store.id %>' method="post">
           <input type="hidden" name="_method" value="patch">
@@ -31,6 +31,15 @@
       <% end %>
       <hr>
       <br>
+      <h3>Update Store</h3>
+        <form class="form-group" action="/store/<%= @store.id()%>/update" method="post">
+          <input type="hidden" name="_method" value="patch">
+          <label for="new_store_name">New Store Name: </label>
+          <input type="text" name="new_store_name">
+          <button class="btn btn-success" type="submit">Update</button>
+        </form>
+        <br>
+        <hr>
       <h3>Delete Store</h3>
         <form class="form-group" action="/store/<%= @store.id() %>" method="post">
           <input class="form-control" type="hidden" name="_method" value="delete">

@@ -15,7 +15,7 @@
       <% end %>
       <br>
     <hr>
-    <h3>Stores:</h3>
+    <h3>Available Stores:</h3>
       <% if @stores.any?() %>
         <form action='/brand/<%= @brand.id %>' method="post">
           <input type="hidden" name="_method" value="patch">
