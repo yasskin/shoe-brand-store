@@ -3,6 +3,16 @@
  border: 50px;
 }
 
+#rain-boots-red {
+ width: 400px;
+ border: 50px;
+}
+
+#rain-boots-green {
+ width: 400px;
+ border: 50px;
+}
+
 button {
   margin: 10px;
 }
