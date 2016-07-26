@@ -22,7 +22,7 @@
           <% @brands.each() do |brand|%>
             <div class="checkbox">
               <label>
-                <input type="checkbox" name="brand_ids[]" value="<%= brand.id()%>"><%= brand.name()%>
+                <input type="checkbox" name="brand_ids[]" value="<%= brand.id()%>"><%= brand.brand_name()%>
               </label>
             </div>
           <% end %>
@@ -34,7 +34,7 @@
       <h3>Delete Store</h3>
     <form class="form-group" action="/store/<%= @store.id() %>" method="post">
       <input class="form-control" type="hidden" name="_method" value="delete">
-      <button class="btn btn-danger" type="submit">Destroy <%= @store.name() %></button>
+      <button class="btn btn-danger" type="submit">Destroy <%= @store.store_name() %></button>
     </form>
     <a href="/">Return to dashboard</a>
     <hr>

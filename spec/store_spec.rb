@@ -11,6 +11,7 @@ describe(Store) do
   end
   it("capitalizes the name of a store") do
     new_store = Store.create({:store_name => "footer locker"})
-    expect(new_store.store_name()).to(eq("Foot locker"))
+    expect(new_store.store_name()).to(eq("Footer locker"))
   end
 end
+r

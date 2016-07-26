@@ -6,7 +6,7 @@
       <h3>stores</h3>
         <ul>
           <% @brand.stores().each() do |store| %>
-            <li><%= store.brand_name() %></li>
+            <li><%= store.store_name() %></li>
           <% end %>
         </ul>
       <% else %>
@@ -20,7 +20,7 @@
           <% @stores.each() do |store|%>
           <div class="checkbox">
           <label>
-            <input type="checkbox" name="store_ids[]" value="<%= store.id()%>"><%= store.brand_name()%>
+            <input type="checkbox" name="store_ids[]" value="<%= store.id()%>"><%= store.store_name()%>
           </label>
         </div>
         <% end %>
@@ -32,7 +32,7 @@
       <hr>
         <form class="form-group" action="/brand/<%= @brand.id() %>" method="post">
           <input class="form-control" type="hidden" name="_method" value="delete">
-          <button class="btn btn-danger" type="submit">Delete <%= @brand.name() %></button>
+          <button class="btn btn-danger" type="submit">Delete <%= @brand.brand_name() %></button>
         </form>
       <hr>
       <a href="/stores">List All Shoe Stores</a>

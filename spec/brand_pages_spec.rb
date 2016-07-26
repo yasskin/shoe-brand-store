@@ -11,9 +11,9 @@ end
 
 describe('add Delete a Brand', {:type => :feature}) do
   it('allows the user to delete a specific brand') do
-    new_brand = Brand.new({:brand_name => "upcase"})
     visit('/')
-    click_button('Upcase')
+    fill_in('brand-name', :with => "upshift")
+    click_button('Create New Shoe Brand')
     click_button('Destroy Upcase')
     expect(page).to have_content("Create New Shoe Brand")
   end

@@ -5,7 +5,7 @@ class Store < ActiveRecord::Base
   before_save(:store_capitalize)
 
 private
-  define_method(:store_upcase) do
+  define_method(:store_capitalize) do
     self.store_name().capitalize!
   end
 

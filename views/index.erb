@@ -4,7 +4,7 @@
       <h3>Stores:</h3>
       <ul>
         <% @stores.each() do |store| %>
-          <li><a href="/store/<%= store.id()%>"><%= store.name() %></a></li>
+          <li><a href="/store/<%= store.id()%>"><%= store.store_name() %></a></li>
         <% end %>
       </ul>
     <% else %>
@@ -19,7 +19,7 @@
       <h3>Brands:</h3>
       <ul>
         <% @brands.each() do |brand| %>
-          <li><a href="/brand/<%= brand.id() %>"><%= brand.name() %></a></li>
+          <li><a href="/brand/<%= brand.id() %>"><%= brand.brand_name() %></a></li>
         <% end %>
       </ul>
     <% else %>

@@ -9,20 +9,20 @@ get('/') do
   erb(:index)
 end
 
-get('/stores/:id') do
+get('/store/:id') do
   @store = Store.find(params.fetch('id').to_i())
   @brands = Brand.all()
   erb(:store)
 end
 
-get('/brands/:id') do
+get('/brand/:id') do
   @brand = Brand.find(params.fetch('id').to_i())
   @stores = Store.all()
   erb(:brand)
 end
 
 post('/store_success') do
-  @name = params.fetch('name')
+  @name = params.fetch('store-name')
   @store = Store.new({:store_name => @name})
   if @store.save()
     redirect("/stores/".concat(@store.id().to_s()))
@@ -32,7 +32,7 @@ post('/store_success') do
 end
 
 post('/brand_success') do
-  @name = params.fetch('name')
+  @name = params.fetch('brand-name')
   @brand = Brand.new({:brand_name => @name})
   if @brand.save()
     redirect("/brand/".concat(@brand.id().to_s()))
