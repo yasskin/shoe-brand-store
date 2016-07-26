@@ -1,53 +1,47 @@
-<h1>Shoe Store Name: <%= @store.store_name() %></h1>
-
-<h3>store details: <%= @store.store_name() %></h3>
-<hr>
-
-<% if @store.brands().any?() %>
-<h3>Brands</h3>
-
-<ul>
-  <% @store.brands().each() do |brand| %>
-  <li><%= brand.brand_name() %></li>
-  <% end %>
-</ul>
-<% else %>
-<p>There are no brands for this store.</p>
-<% end %>
-
-<hr>
-
-<h3>brands:</h3>
-<% if @brands.any?() %>
-<form action='/store/<%= @store.id %>' method="post">
-  <input type="hidden" name="_method" value="patch">
-
-  <% @brands.each() do |brand|%>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" name="brand_ids[]" value="<%= brand.id()%>"><%= brand.name()%>
-    </label>
+<div class="row">
+  <div class="col-md-4 col-md-offset-3">
+    <h1>Shoe Store Name: <%= @store.store_name() %></h1>
+      <h3>store details: <%= @store.store_name() %></h3>
+      <hr>
+      <% if @store.brands().any?() %>
+        <h3>Brands</h3>
+        <ul>
+          <% @store.brands().each() do |brand| %>
+            <li><%= brand.brand_name() %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>There are no brands for this store.</p>
+      <% end %>
+      <br>
+    <hr>
+    <h3>Brands: </h3>
+      <% if @brands.any?() %>
+        <form action='/store/<%= @store.id %>' method="post">
+          <input type="hidden" name="_method" value="patch">
+          <% @brands.each() do |brand|%>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="brand_ids[]" value="<%= brand.id()%>"><%= brand.name()%>
+              </label>
+            </div>
+          <% end %>
+          <button type="submit">Add Brands</button>
+        </form>
+      <% end %>
+      <hr>
+      <br>
+      <h3>Delete Store</h3>
+    <form class="form-group" action="/store/<%= @store.id() %>" method="post">
+      <input class="form-control" type="hidden" name="_method" value="delete">
+      <button class="btn btn-danger" type="submit">Delete <%= @store.name() %></button>
+    </form>
+    <a href="/">Return to dashboard</a>
+    <hr>
+    <a href="/stores">List All Shoe Stores</a>
+    <br>
+    <a href="/brands">List All Shoe Brands</a>
+    <br>
+    <a href="/">Home</a>
   </div>
-  <% end %>
-
-  <button type="submit">Add brands</button>
-</form>
-<% end %>
-
-<hr>
-
-<a href="/">Return to dashboard</a>
-
-<hr>
-
-<form class="form-group" action="/store/<%= @store.id() %>" method="post">
-  <input class="form-control" type="hidden" name="_method" value="delete">
-  <button class="btn btn-danger" type="submit">Delete <%= @store.name() %></button>
-</form>
-
-<hr>
-<a href="/stores">List All Shoe Stores</a>
-<br>
-<a href="/brands">List All Shoe Brands</a>
-<br>
-<a href="/">Home</a>
+</div>

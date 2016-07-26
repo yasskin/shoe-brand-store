@@ -1,15 +1,21 @@
-<h1>List of Shoe Stores</h1>
-<hr>
-<% if @stores.any?() %>
-<ul>
-  <% @stores.each() do |store| %>
-    <li><a href="/stores/<%= store.id() %>"><%= store.store_name() %></a></li>
+<div class="row">
+  <div class=""col-md-4 col-md-offset-3"">
+    <h1>List of Shoe Stores</h1>
+    <hr>
+    <% if @stores.any?() %>
+      <h3>Shoe Stores: </h3>
+      <ul>
+        <% @stores.each() do |store| %>
+          <li><a href="/stores/<%= store.id() %>"><%= store.store_name() %></a></li>
+          <% end %>
+      </ul>
+    <% else %>
+      <p>There are no stores yet!</p>
+      <br>
+      <a href="/">Add a Store</a>
     <% end %>
-</ul>
-<% else %>
-  <p>There are no stores yet!</p>
-  <a href="/">Add a Store</a>
-<% end %>
-
-<hr>
-<a href="/">Home</a>
+    <br>
+    <hr>
+    <a href="/">Home</a>
+  </div>
+</div>
