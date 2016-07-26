@@ -27,7 +27,7 @@ post('/store_success') do
   if @store.save()
     redirect("/store/".concat(@store.id().to_s()))
   else
-    erb(:index)
+    erb(:store_errors)
   end
 end
 
@@ -37,7 +37,7 @@ post('/brand_success') do
   if @brand.save()
     redirect("/brand/".concat(@brand.id().to_s()))
   else
-    erb(:index)
+    erb(:brand_errors)
   end
 end
 
