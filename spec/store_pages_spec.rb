@@ -34,7 +34,7 @@ describe('Update a Store name with a new store name', {:type => :feature}) do
     visit('/')
     fill_in('store-name', :with => "pop")
     click_button('Create New Shoe Store')
-    fill_in('new-store-name', :with => "splice")
+    fill_in('new_store_name', :with => "splice")
     click_button('Update')
     expect(page).to have_content("Splice")
   end
