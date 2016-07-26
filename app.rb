@@ -17,6 +17,20 @@ get('/brands') do
   erb(:brands)
 end
 
+post('/store_success') do
+  @name = params.fetch('name')
+  store = Store.new({:store_name => @name})
+  store.save()
+  erb(:store_success)
+end
+
+post('/brand_success') do
+  @name = params.fetch('name')
+  brand = Brand.new({:brand_name => @name})
+  store.save()
+  erb(:brand_success)
+end
+
 post('/stores') do
   name = params.fetch('store-name')
   @store = Store.new(:id => nil, :store_name => name)

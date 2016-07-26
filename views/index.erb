@@ -1,14 +1,59 @@
-<hr>
-<form action="/stores" class="form-group" method="post">
-  <input type="hidden" name="store-name" value="New Store">
-  <button type="submit" name="button">Create New Shoe Store</button>
-</form>
-<hr>
-<form action="/brands" class="form-group" method="post">
-  <input type="hidden" name="brand-name" value="New Brand">
-  <button type="submit" name="button">Create New Shoe Brand</button>
-</form>
-<hr>
-<a href="/stores"><button>List All Shoe Stores</button></a>
-<hr>
-<a href="/brands"><button>List All Shoe Brands</button></a>
+<div class="row">
+  <div class="col-md-3 col-md-offset-1">
+    <% if @stores.any?() %>
+    <h3>Stores:</h3>
+    <ul>
+      <% @stores.each() do |store| %>
+      <li><a href="/store/<%= store.id()%>"><%= store.name() %></a></li>
+      <% end %>
+    </ul>
+    <% else %>
+    <p>
+      There are no shoe stores yet!
+    </p>
+    <% end %>
+    <hr>
+  </div>
+  <div class="col-md-3 col-md-offset-2">
+    <h3>Brands:</h3>
+    <% if @brands.any? %>
+    <% @brands.each() do |brand| %>
+    <li><a href="/brand/<%= brand.id() %>"><%= brand.name() %></a></li>
+    <% end %>
+    </ul>
+    <% else %>
+    <p>
+      There are no shoe brands yet.
+    </p>
+    <% end %>
+    <hr>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-3 col-md-offset-1">
+    <h3>Add a Shoe Store</h3>
+    <form class="form-group" action="/store_success" method="post">
+      <label for="name">Store name</label>
+      <input class="form-control" type="text" name="name">
+      <button class="btn btn-primary" type="submit">Add store</button>
+    </form>
+  </div>
+
+  <div class="col-md-3 col-md-offset-2">
+      <h3>Add a Brand</h3>
+    <form action="/brand_success" class="form-group" method="post">
+      <label for="brand-name">Brand Name</label>
+      <input class="form-control" type="text" name="brand-name">
+      <button class="btn btn-primary"type="submit">Create New Shoe Brand</button>
+    </form>
+  </div>
+</div>
+
+
+    <hr>
+    <a href="/stores"><button>List All Shoe Stores</button></a>
+    <hr>
+    <a href="/brands"><button>List All Shoe Brands</button></a>
+  </div>
+</div>
