@@ -57,7 +57,7 @@ delete('/brand/:id') do
   erb(:index)
 end
 
-patch('/stores/:id') do
+patch('/store/:id') do
   store_id = params.fetch('id').to_i()
   @store = Store.find(store_id)
   brand_ids = params.fetch("brand_ids")
@@ -67,7 +67,7 @@ patch('/stores/:id') do
   erb(:index)
 end
 
-patch('/brands/:id') do
+patch('/brand/:id') do
   brand_id = params.fetch('id').to_i()
   @brand = Brand.find(brand_id)
   store_ids = params.fetch("store_ids")
