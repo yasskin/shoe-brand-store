@@ -23,16 +23,22 @@ end
 
 post('/store_success') do
   @name = params.fetch('name')
-  store = Store.new({:store_name => @name})
-  store.save()
-  erb(:store_success)
+  @store = Store.new({:store_name => @name})
+  if @store.save()
+    redirect("/stores/".concat(@store.id().to_s()))
+  else
+    erb(:index)
+  end
 end
 
 post('/brand_success') do
   @name = params.fetch('name')
-  brand = Brand.new({:brand_name => @name})
-  store.save()
-  erb(:brand_success)
+  @brand = Brand.new({:brand_name => @name})
+  if @brand.save()
+    redirect("/brand/".concat(@brand.id().to_s()))
+  else
+    erb(:index)
+  end
 end
 
 delete('/store/:id') do

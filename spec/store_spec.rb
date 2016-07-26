@@ -9,8 +9,8 @@ describe(Store) do
     new_store = Store.new({:store_name => "n".*(41)})
     expect(new_store.save()).to(eq(false))
   end
-  it("upcases the name of a store") do
+  it("capitalizes the name of a store") do
     new_store = Store.create({:store_name => "footer locker"})
-    expect(new_store.store_name()).to(eq("FOOTER LOCKER"))
+    expect(new_store.store_name()).to(eq("Foot locker"))
   end
 end
