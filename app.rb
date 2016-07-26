@@ -25,7 +25,7 @@ post('/store_success') do
   @name = params.fetch('store-name')
   @store = Store.new({:store_name => @name})
   if @store.save()
-    redirect("/stores/".concat(@store.id().to_s()))
+    redirect("/store/".concat(@store.id().to_s()))
   else
     erb(:index)
   end
@@ -45,7 +45,7 @@ delete('/store/:id') do
   @store = Store.find(params.fetch('id').to_i())
   @store.delete()
   @stores = Store.all()
-  @brand = Brand.all()
+  @brands = Brand.all()
   erb(:index)
 end
 

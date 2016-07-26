@@ -14,19 +14,17 @@ describe('add Delete a Brand', {:type => :feature}) do
     visit('/')
     fill_in('brand-name', :with => "upshift")
     click_button('Create New Shoe Brand')
-    click_button('Destroy Upcase')
+    click_button('Destroy Upshift')
     expect(page).to have_content("Create New Shoe Brand")
   end
 end
 
 describe('List all Shoe Stores with a specific Brand', {:type => :feature}) do
   it('allows the user to see a list of all Shoe Stores that carry a specific brand') do
+    test_brand = Brand.create({:brand_name => "adidas"})
+    test_brand = Brand.create({:brand_name => "camper"})
     visit('/')
-    test_store = Store.create({:store_name => "Many to Many"})
-    new_shoe_brand = Brand.new({:brand_name => "psql", :store_ids => [test_store.id()]})
-    new_shoe_brand.save()
-    click_link("List All Shoe Brands")
-    click_link("Psql")
-    expect(page).to have_content('MANY TO MANY')
+    expect(page).to have_content('Adidas')
+    expect(page).to have_content('Camper')
   end
 end

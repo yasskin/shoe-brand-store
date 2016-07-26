@@ -14,4 +14,3 @@ describe(Store) do
     expect(new_store.store_name()).to(eq("Footer locker"))
   end
 end
-r

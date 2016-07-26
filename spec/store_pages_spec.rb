@@ -12,8 +12,10 @@ end
 describe('create a route to List all shoe stores', {:type => :feature}) do
   it('takes a user to a page where all of the shoe stores are listed') do
     new_store = Store.create({:store_name => "branches"})
+    new_store = Store.create({:store_name => "tilda"})
     visit('/')
     expect(page).to have_content('Branches')
+    expect(page).to have_content('Tilda')
   end
 end
 

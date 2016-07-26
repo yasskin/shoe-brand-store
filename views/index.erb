@@ -15,7 +15,7 @@
     <hr>
   </div>
   <div class="col-md-3 col-md-offset-2">
-    <% if @brands.any? %>
+    <% if @brands.any?() %>
       <h3>Brands:</h3>
       <ul>
         <% @brands.each() do |brand| %>
@@ -46,13 +46,5 @@
       <input class="form-control" type="text" name="brand-name">
       <button class="btn btn-primary"type="submit">Create New Shoe Brand</button>
     </form>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-3 col-md-offset-1">
-    <hr>
-    <a href="/stores"><button>List All Shoe Stores</button></a>
-    <hr>
-    <a href="/brands"><button>List All Shoe Brands</button></a>
   </div>
 </div>
